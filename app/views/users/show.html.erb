@@ -14,7 +14,9 @@
   </tr>
 </table>
 
-<%= link_to 'edit user', edit_user_path(current_user) %>
+<% if @user.id == current_user.id %>
+  <%= link_to 'edit user', edit_user_path(current_user) %>
+<% end%>
 
 <!--投稿フォーム-->
 <h2>New book</h2>
