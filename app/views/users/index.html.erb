@@ -1,38 +1,8 @@
-<!--Users info-->
-<h2>User info</h2>
-<table>
-  <tr>
-    <th><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></th>
-  </tr>
-  <tr>
-    <th>name</th>
-    <td><%= @user.name %></td>
-  </tr>
-  <tr>
-    <th>introduction</th>
-    <td><%= @user.introduction %></td>
-  </tr>
-</table>
+<!--User info-->
+<%= render 'users/user', user: @user %>
 
 <!--投稿フォーム-->
-<h2>New book</h2>
-
-<% if @book.errors.any? %>
-  <h4><%= @book.errors.count %> error: </h4>
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<%= form_with model:@book, local:true do |f| %>
-  <p>Title</p>
-  <%= f.text_field :title %>
-  <p>Opinion</p>
-  <%= f.text_area :body %>
-  <%= f.submit 'Create Book' %>
-<% end %>
+<%= render 'books/book', book: @book %>
 
 <!--ユーザー一覧-->
 <h2>Users</h2>
