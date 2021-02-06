@@ -16,6 +16,16 @@
 
 <!--投稿フォーム-->
 <h2>New book</h2>
+
+<% if @book.errors.any? %>
+  <h4><%= @book.errors.count %> error: </h4>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model:@book, local:true do |f| %>
   <p>Title</p>
   <%= f.text_field :title %>
