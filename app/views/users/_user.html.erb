@@ -1,6 +1,7 @@
 <!--Users info-->
 <h2>User info</h2>
-<table>
+
+<table class="table">
   <tr>
     <th><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></th>
   </tr>
@@ -15,5 +16,5 @@
 </table>
 
 <% if user.id == current_user.id %>
-  <%= link_to 'edit user', edit_user_path(current_user) %>
+  <%= link_to 'edit user', edit_user_path(current_user), class:"btn btn-outline-secondary" %>
 <% end%>
